@@ -1,0 +1,18 @@
+<h1> Edit Pokemon </h1>
+
+<div class="row">
+	<form id="edit-pokemon-form" class="form-vertical">
+		<div class="form-group col-md-10">
+			{{input type="text" class="form-control col-md-10" value=model.name placeholder=""}}
+		</div>
+	</form>
+	{{#confirm-dialog
+		confirmButtonClass="btn btn-success col-md-5 pull-left"
+		cancelButtonClass="btn btn-danger col-md-5 col-md-offset-1 pull-right"
+	}}
+		<button class="btn btn-primary col-md-2" {{action 'editPokemon' model.id}}>Submit</button>
+	{{/confirm-dialog}}
+</div>
+{{#if model.updatedAt }}
+	<p style="color:blue">Updated at {{formatDate model.updatedAt }}</p>
+{{/if}}

@@ -1,0 +1,47 @@
+{{#if loading }}
+  {{#modal-dialog translucentOverlay=true}}
+    {{fa-icon "spinner" size=4 pulse=true }}
+  {{/modal-dialog}}
+{{else}}
+  {{input type="text" class="form-control" value=filter id="search" placeholder="Search Pokemon by name" autocomplete="off"}}
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-md-1 text-center">#</th>
+        <th class="col-md-10">Name</th>
+        <th class="col-md-1 text-center">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if filter}}
+          {{#each filteredPokemon as |pokemon|}}
+            <tr>
+              <td class="col-md-1 text-center"><img src="images/pokeball.png" style="width:20px" /></td>
+              <td scope="row">
+                {{#link-to 'pokemon.edit' pokemon.id}}{{pokemon.name}}{{/link-to}}
+              </td>
+              <td class="text-center">
+                {{#link-to 'pokemon.edit' pokemon.id}}
+                  {{fa-icon "pencil-square-o"}}
+                {{/link-to}}
+              </td>
+            </tr>
+          {{/each}}
+      {{else}}
+        {{#each model as |pokemon|}}
+          <tr>
+            <td class="col-md-1 text-center"><img src="images/pokeball.png" style="width:20px" /></td>
+            <td scope="row">
+              {{pokemon.name}}
+            </td>
+            <td class="text-center">
+              {{#link-to 'pokemon.edit' pokemon.id}}
+                {{fa-icon "pencil-square-o"}}
+              {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      {{/if}}
+    </tbody>
+  </table>
+{{/if}}

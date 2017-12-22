@@ -1,0 +1,17 @@
+<h1> Add Pokemon </h1>
+{{#if saved }}
+  {{#modal-dialog translucentOverlay=true}}
+    <p>New pokemon added. 
+			{{#link-to 'pokemon'}}Click here{{/link-to}} to back to list.
+		</p>
+  {{/modal-dialog}}
+{{/if}}
+
+<form id="add-pokemon-form" class="form-vertical">
+	<div class="row">
+		<div class="form-group col-md-10">
+			{{input type="text" class="form-control" value=name placeholder="Name"}}
+		</div>
+		<button {{action 'createPokemon'}} class="btn btn-primary col-md-2">Submit</button> 
+	</div>
+</form>

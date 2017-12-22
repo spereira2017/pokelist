@@ -1,0 +1,17 @@
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
+body {
+    padding-top: 70px;
+    background-color: #eee;
+}
+
+.navbar a.active {
+    color: white;
+}
+
+.ember-modal-dialog {
+    width: 350px;
+    height: 100px;
+    padding: 20px !important;
+}
