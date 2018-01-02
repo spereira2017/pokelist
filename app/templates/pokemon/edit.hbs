@@ -14,5 +14,5 @@
 	{{/confirm-dialog}}
 </div>
 {{#if model.updatedAt }}
-	<p style="color:blue">Updated at {{formatDate model.updatedAt }}</p>
+	<p style="color:blue">Updated at {{moment-format model.updatedAt 'YYYY-MM-DD HH:mm:ss'}}</p>
 {{/if}}
